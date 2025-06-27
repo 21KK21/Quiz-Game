@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .quiz-container {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      max-width: 400px;
+      width: 100%;
+    }
+    .question {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    .options button {
+      display: block;
+      background: #e0e0e0;
+      border: none;
+      margin: 0.5rem 0;
+      padding: 0.75rem;
+      width: 100%;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .options button:hover {
+      background: #ccc;
+    }
+    .score {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <div class="question" id="question">Loading question...</div>
+    <div class="options" id="options"></div>
+    <div class="score hidden" id="score"></div>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        question: "What is the capital of India?",
+        options: ["Delhi", "Mumbai", "Kolkata", "Chennai"],
+        answer: "Delhi"
+      },
+      {
+        question: "2 + 2 = ?",
+        options: ["3", "4", "5", "6"],
+        answer: "4"
+      },
+      {
+        question: "Which planet is known as the Red Planet?",
+        options: ["Earth", "Mars", "Jupiter", "Saturn"],
+        answer: "Mars"
+      }
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+
+    const questionEl = document.getElementById("question");
+    const optionsEl = document.getElementById("options");
+    const scoreEl = document.getElementById("score");
+
+    function loadQuestion() {
+      if (currentQuestion >= questions.length) {
+        questionEl.textContent = "Quiz Completed!";
+        optionsEl.innerHTML = "";
+        scoreEl.classList.remove("hidden");
+        scoreEl.textContent = "Your score: " + score + "/" + questions.length;
+        return;
+      }
+
+      const q = questions[currentQuestion];
+      questionEl.textContent = q.question;
+      optionsEl.innerHTML = "";
+
+      q.options.forEach(function(option) {
+        const button = document.createElement("button");
+        button.textContent = option;
+        button.addEventListener("click", function() {
+          handleAnswer(option);
+        });
+        optionsEl.appendChild(button);
+      });
+    }
+
+    function handleAnswer(selected) {
+      if (selected === questions[currentQuestion].answer) {
+        score++;
+      }
+      currentQuestion++;
+      loadQuestion();
+    }
+
+    loadQuestion();
+  </script>
+</body>
+</html>
