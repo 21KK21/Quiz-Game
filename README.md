@@ -20,8 +20,8 @@ Test your general knowledge and sharpen your mind with a quick set of multiple-c
 
 ## 🚀 Live Demo
 
-👉 [Play the Quiz Game Now](https://your-netlify-link.netlify.app)  
-(Replace this link with your actual Netlify or GitHub Pages URL)
+👉 [Play the Quiz Game Now](file:///C:/Users/krish/OneDrive/Desktop/quiz_game.html)  
+
 
 ---
 
