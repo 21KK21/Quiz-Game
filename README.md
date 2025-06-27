@@ -20,7 +20,7 @@ Test your general knowledge and sharpen your mind with a quick set of multiple-c
 
 ## 🚀 Live Demo
 
-👉 [Play the Quiz Game Now](C:/Users/krish/OneDrive/Desktop/quiz_game.html) 
+👉 [Play the Quiz Game Now](https://github.com/21KK21/Quiz-Game/new/main)) 
 
 
 ---
